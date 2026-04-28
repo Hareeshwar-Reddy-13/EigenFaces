@@ -1,0 +1,63 @@
+#######################################################
+#                                                     #
+#  Encounter Command Logging File                     #
+#  Created on Sun Apr 26 20:01:08 2026                #
+#                                                     #
+#######################################################
+
+#@(#)CDS: Encounter v13.10-p003_1 (32bit) 04/17/2013 15:43 (Linux 2.6)
+#@(#)CDS: NanoRoute v13.10-p002 NR130329-0035/13_10-UB (database version 2.30, 190.4.1) {superthreading v1.19}
+#@(#)CDS: CeltIC v13.10-p007_1 (32bit) 04/10/2013 11:52:21 (Linux 2.6.18-194.el5)
+#@(#)CDS: AAE 13.10-p003 (32bit) 04/17/2013 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 13.10-p009_1 (32bit) Apr 10 2013 05:45:06 (Linux 2.6.18-194.el5)
+#@(#)CDS: CPE v13.10-p010
+#@(#)CDS: IQRC/TQRC 12.1.0-s388 (32bit) Fri Mar 29 14:17:34 PDT 2013 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+set init_verilog /mnt/hgfs/VMshare/Verilog/eigen_folder_neat/outputs/eigen_top_synth.v
+set init_top_cell eigen_top
+set init_lef_file {/mnt/hgfs/VMshare/scl180/stdcell/fs120/4M1IL/lef/scl18fs120_tech.lef /mnt/hgfs/VMshare/scl180/stdcell/fs120/4M1IL/lef/scl18fs120_std.lef}
+set init_pwr_net VDD
+set init_gnd_net VSS
+create_library_set -name SCL_SS -timing [list "$STD_PATH/liberty/lib_flow_ss/tsl18fs120_scl_ss.lib"]
+create_delay_corner -name SCL_CORNER -library_set SCL_SS
+create_constraint_mode -name FUNC -sdc_files [list "$PROJECT_DIR/outputs/eigen_top_synth.sdc"]
+create_analysis_view -name SCL_VIEW -constraint_mode FUNC -delay_corner SCL_CORNER
+init_design -setup SCL_VIEW -hold SCL_VIEW
+fit
+restoreDesign /mnt/hgfs/VMshare/Verilog/eigen_folder_neat/outputs/01_imported.dsn.dat eigen_top
+floorPlan -site CoreSite -r 1.0 0.6 20 20 20 20
+addRing -nets {VDD VSS} -width 5 -spacing 2 -layer {top Metal4 bottom Metal4 left Metal3 right Metal3}
+addStripe -nets {VSS VDD} -layer Metal3 -width 2.5 -spacing 1.5 -set_to_set_distance 40
+saveDesign /mnt/hgfs/VMshare/Verilog/eigen_folder_neat/outputs/02_floorplanned.dsn
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { M1 TOP_M } -blockPinTarget { nearestRingStripe nearestTarget } -padPinPortConnect { allPort oneGeom } -stripeSCpinTarget { blockring padring ring stripe ringpin blockpin } -checkAlignedSecondaryPin 1 -blockPin useLef -allowJogging 1 -crossoverViaBottomLayer M1 -allowLayerChange 1 -targetViaTopLayer TOP_M -crossoverViaTopLayer TOP_M -targetViaBottomLayer M1
+restoreDesign /mnt/hgfs/VMshare/Verilog/eigen_folder_neat/outputs/02_floorplanned.dsn.dat eigen_top
+setPlaceMode -timingDriven true
+placeDesign
+optDesign -preCTS
+saveDesign /mnt/hgfs/VMshare/Verilog/eigen_folder_neat/outputs/03_placed.dsn
+selectInst mac_inst/csa_tree_add_36_25_I16/g136723
+fit
+setVerifyGeometryMode -area { 0 0 0 0 } -minWidth true -minSpacing true -minArea true -sameNet true -short true -overlap true -offRGrid false -offMGrid true -mergedMGridCheck true -minHole true -implantCheck true -minimumCut true -minStep true -viaEnclosure true -antenna false -insuffMetalOverlap true -pinInBlkg false -diffCellViol true -sameCellViol false -padFillerCellsOverlap true -routingBlkgPinOverlap true -routingCellBlkgOverlap true -regRoutingOnly false -stackedViasOnRegNet false -wireExt true -useNonDefaultSpacing false -maxWidth true -maxNonPrefLength -1 -error 1000 -warning 50
+verifyGeometry
+setVerifyGeometryMode -area { 0 0 0 0 }
+deselectAll
+selectWire 349.5800 446.7400 403.0600 447.0200 3 FE_OFN178_delayed_eigen_weight_114_
+deselectAll
+verifyConnectivity -type all -error 1000 -warning 50
+setMetalFill -layer M1 -windowSize 200.000 200.000 -windowStep 100.000 100.000 -minDensity 20.000 -maxDensity 80.000
+setMetalFill -layer M2 -windowSize 200.000 200.000 -windowStep 100.000 100.000 -minDensity 20.000 -maxDensity 80.000
+setMetalFill -layer M3 -windowSize 200.000 200.000 -windowStep 100.000 100.000 -minDensity 20.000 -maxDensity 80.000
+setMetalFill -layer TOP_M -windowSize 200.000 200.000 -windowStep 100.000 100.000 -minDensity 20.000 -maxDensity 80.000
+verifyMetalDensity -report eigen_top.density.rpt
+restoreDesign /mnt/hgfs/VMshare/Verilog/eigen_folder_neat/outputs/03_placed.dsn.dat eigen_top
+set_ccopt_property buffer_cells {clk_buf_1 clk_buf_2 clk_buf_4}
+set_ccopt_property inverter_cells {clk_inv_1 clk_inv_2 clk_inv_4}
+set_ccopt_property target_skew 0.300
+set_ccopt_property target_max_trans 0.500
+create_ccopt_clock_tree_spec
+create_ccopt_clock_tree_spec -views SCL_VIEW
+set_ccopt_mode -integration native
+create_ccopt_clock_tree_spec

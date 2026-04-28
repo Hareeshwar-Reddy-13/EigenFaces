@@ -1,0 +1,14 @@
+# ==========================================
+# Synopsys Design Constraints (SDC)
+# Target: 100 MHz Clock (10ns period)
+# ==========================================
+
+# 1. Define the clock port and target speed
+create_clock -name clk -period 100.0 [get_ports clk]
+
+# 2. Set input and output delays (giving the signals 2ns to arrive/leave)
+set_input_delay -max 2.0 -clock clk [all_inputs]
+set_output_delay -max 2.0 -clock clk [all_outputs]
+
+# 3. Handle the reset signal (don't buffer the reset network during synthesis)
+set_ideal_network [get_ports reset]

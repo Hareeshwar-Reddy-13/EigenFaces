@@ -1,0 +1,239 @@
+#Copyright notice: Copyright 1997-2010 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+
+ovf_setup -ungroup_separator { _ }
+
+ovf_instance_module_name -module eigen_top \
+{ { subtract_inst eigen_subtract eigen_subtract_PIXELS_PER_CYCLE16 } }
+ovf_instance_module_name -module eigen_top \
+{ { mac_inst eigen_mac eigen_mac_PARALLEL_MACS16_ACC_WIDTH38_EIGEN_FACES1 } }
+ovf_transform \
+-module { eigen_mac_PARALLEL_MACS16_ACC_WIDTH38_EIGEN_FACES1 } \
+-type { tree } \
+-internal_type { 103 } \
+-internal_index { 23 } \
+-input { 10 centred_pixels0 } \
+-input { 16 weights0 } \
+-input { 10 centred_pixels1 } \
+-input { 16 weights1 } \
+-input { 10 centred_pixels2 } \
+-input { 16 weights2 } \
+-input { 10 centred_pixels3 } \
+-input { 16 weights3 } \
+-input { 10 centred_pixels4 } \
+-input { 16 weights4 } \
+-input { 10 centred_pixels5 } \
+-input { 16 weights5 } \
+-input { 10 centred_pixels6 } \
+-input { 16 weights6 } \
+-input { 10 centred_pixels7 } \
+-input { 16 weights7 } \
+-input { 10 centred_pixels8 } \
+-input { 16 weights8 } \
+-input { 10 centred_pixels9 } \
+-input { 16 weights9 } \
+-input { 10 centred_pixels10 } \
+-input { 16 weights10 } \
+-input { 10 centred_pixels11 } \
+-input { 16 weights11 } \
+-input { 10 centred_pixels12 } \
+-input { 16 weights12 } \
+-input { 10 centred_pixels13 } \
+-input { 16 weights13 } \
+-input { 10 centred_pixels14 } \
+-input { 16 weights14 } \
+-input { 10 centred_pixels15 } \
+-input { 16 weights15 } \
+-output { 38 sops0 } \
+-from { \
+   { 26 mul_25_76_I1 : MULT { { centred_pixels0 SIGN 26 } { weights0 SIGN 26 } } } \
+   { 26 mul_25_76_I2 : MULT { { centred_pixels1 SIGN 26 } { weights1 SIGN 26 } } } \
+   { 26 mul_25_76_I3 : MULT { { centred_pixels2 SIGN 26 } { weights2 SIGN 26 } } } \
+   { 26 mul_25_76_I4 : MULT { { centred_pixels3 SIGN 26 } { weights3 SIGN 26 } } } \
+   { 26 mul_25_76_I5 : MULT { { centred_pixels4 SIGN 26 } { weights4 SIGN 26 } } } \
+   { 26 mul_25_76_I6 : MULT { { centred_pixels5 SIGN 26 } { weights5 SIGN 26 } } } \
+   { 26 mul_25_76_I7 : MULT { { centred_pixels6 SIGN 26 } { weights6 SIGN 26 } } } \
+   { 26 mul_25_76_I8 : MULT { { centred_pixels7 SIGN 26 } { weights7 SIGN 26 } } } \
+   { 26 mul_25_76_I9 : MULT { { centred_pixels8 SIGN 26 } { weights8 SIGN 26 } } } \
+   { 26 mul_25_76_I10 : MULT { { centred_pixels9 SIGN 26 } { weights9 SIGN 26 } } } \
+   { 26 mul_25_76_I11 : MULT { { centred_pixels10 SIGN 26 } { weights10 SIGN 26 } } } \
+   { 26 mul_25_76_I12 : MULT { { centred_pixels11 SIGN 26 } { weights11 SIGN 26 } } } \
+   { 26 mul_25_76_I13 : MULT { { centred_pixels12 SIGN 26 } { weights12 SIGN 26 } } } \
+   { 26 mul_25_76_I14 : MULT { { centred_pixels13 SIGN 26 } { weights13 SIGN 26 } } } \
+   { 26 mul_25_76_I15 : MULT { { centred_pixels14 SIGN 26 } { weights14 SIGN 26 } } } \
+   { 26 mul_25_76_I16 : MULT { { centred_pixels15 SIGN 26 } { weights15 SIGN 26 } } } \
+   { 38 add_36_25_I2 : ADD { { mul_25_76_I1.1 SIGN 38 } { mul_25_76_I2.1 SIGN 38 } } } \
+   { 38 add_36_25_I3 : ADD { { add_36_25_I2.1 } { mul_25_76_I3.1 SIGN 38 } } } \
+   { 38 add_36_25_I4 : ADD { { add_36_25_I3.1 } { mul_25_76_I4.1 SIGN 38 } } } \
+   { 38 add_36_25_I5 : ADD { { add_36_25_I4.1 } { mul_25_76_I5.1 SIGN 38 } } } \
+   { 38 add_36_25_I6 : ADD { { add_36_25_I5.1 } { mul_25_76_I6.1 SIGN 38 } } } \
+   { 38 add_36_25_I7 : ADD { { add_36_25_I6.1 } { mul_25_76_I7.1 SIGN 38 } } } \
+   { 38 add_36_25_I8 : ADD { { add_36_25_I7.1 } { mul_25_76_I8.1 SIGN 38 } } } \
+   { 38 add_36_25_I9 : ADD { { add_36_25_I8.1 } { mul_25_76_I9.1 SIGN 38 } } } \
+   { 38 add_36_25_I10 : ADD { { add_36_25_I9.1 } { mul_25_76_I10.1 SIGN 38 } } } \
+   { 38 add_36_25_I11 : ADD { { add_36_25_I10.1 } { mul_25_76_I11.1 SIGN 38 } } } \
+   { 38 add_36_25_I12 : ADD { { add_36_25_I11.1 } { mul_25_76_I12.1 SIGN 38 } } } \
+   { 38 add_36_25_I13 : ADD { { add_36_25_I12.1 } { mul_25_76_I13.1 SIGN 38 } } } \
+   { 38 add_36_25_I14 : ADD { { add_36_25_I13.1 } { mul_25_76_I14.1 SIGN 38 } } } \
+   { 38 add_36_25_I15 : ADD { { add_36_25_I14.1 } { mul_25_76_I15.1 SIGN 38 } } } \
+   { 38 add_36_25_I16 : ADD { { add_36_25_I15.1 } { mul_25_76_I16.1 SIGN 38 } } } \
+   { sops0 = { add_36_25_I16.1 } } } \
+-to { \
+   { 26 mul_25_76_I1 : MULT { { centred_pixels0 SIGN 26 } { weights0 SIGN 26 } } } \
+   { 26 mul_25_76_I2 : MULT { { centred_pixels1 SIGN 26 } { weights1 SIGN 26 } } } \
+   { 26 mul_25_76_I3 : MULT { { centred_pixels2 SIGN 26 } { weights2 SIGN 26 } } } \
+   { 26 mul_25_76_I4 : MULT { { centred_pixels3 SIGN 26 } { weights3 SIGN 26 } } } \
+   { 26 mul_25_76_I5 : MULT { { centred_pixels4 SIGN 26 } { weights4 SIGN 26 } } } \
+   { 26 mul_25_76_I6 : MULT { { centred_pixels5 SIGN 26 } { weights5 SIGN 26 } } } \
+   { 26 mul_25_76_I7 : MULT { { centred_pixels6 SIGN 26 } { weights6 SIGN 26 } } } \
+   { 26 mul_25_76_I8 : MULT { { centred_pixels7 SIGN 26 } { weights7 SIGN 26 } } } \
+   { 26 mul_25_76_I9 : MULT { { centred_pixels8 SIGN 26 } { weights8 SIGN 26 } } } \
+   { 26 mul_25_76_I10 : MULT { { centred_pixels9 SIGN 26 } { weights9 SIGN 26 } } } \
+   { 26 mul_25_76_I11 : MULT { { centred_pixels10 SIGN 26 } { weights10 SIGN 26 } } } \
+   { 26 mul_25_76_I12 : MULT { { centred_pixels11 SIGN 26 } { weights11 SIGN 26 } } } \
+   { 26 mul_25_76_I13 : MULT { { centred_pixels12 SIGN 26 } { weights12 SIGN 26 } } } \
+   { 26 mul_25_76_I14 : MULT { { centred_pixels13 SIGN 26 } { weights13 SIGN 26 } } } \
+   { 26 mul_25_76_I15 : MULT { { centred_pixels14 SIGN 26 } { weights14 SIGN 26 } } } \
+   { 26 mul_25_76_I16 : MULT { { centred_pixels15 SIGN 26 } { weights15 SIGN 26 } } } \
+   { 27 add_36_25_I2 : ADD { { mul_25_76_I1.1 SIGN 27 } { mul_25_76_I2.1 SIGN 27 } } } \
+   { 28 add_36_25_I3 : ADD { { add_36_25_I2.1 SIGN 28 } { mul_25_76_I3.1 SIGN 28 } } } \
+   { 29 add_36_25_I4 : ADD { { add_36_25_I3.1 SIGN 29 } { mul_25_76_I4.1 SIGN 29 } } } \
+   { 30 add_36_25_I5 : ADD { { add_36_25_I4.1 SIGN 30 } { mul_25_76_I5.1 SIGN 30 } } } \
+   { 31 add_36_25_I6 : ADD { { add_36_25_I5.1 SIGN 31 } { mul_25_76_I6.1 SIGN 31 } } } \
+   { 32 add_36_25_I7 : ADD { { add_36_25_I6.1 SIGN 32 } { mul_25_76_I7.1 SIGN 32 } } } \
+   { 33 add_36_25_I8 : ADD { { add_36_25_I7.1 SIGN 33 } { mul_25_76_I8.1 SIGN 33 } } } \
+   { 34 add_36_25_I9 : ADD { { add_36_25_I8.1 SIGN 34 } { mul_25_76_I9.1 SIGN 34 } } } \
+   { 35 add_36_25_I10 : ADD { { add_36_25_I9.1 SIGN 35 } { mul_25_76_I10.1 SIGN 35 } } } \
+   { 36 add_36_25_I11 : ADD { { add_36_25_I10.1 SIGN 36 } { mul_25_76_I11.1 SIGN 36 } } } \
+   { 37 add_36_25_I12 : ADD { { add_36_25_I11.1 SIGN 37 } { mul_25_76_I12.1 SIGN 37 } } } \
+   { 38 add_36_25_I13 : ADD { { add_36_25_I12.1 SIGN 38 } { mul_25_76_I13.1 SIGN 38 } } } \
+   { 38 add_36_25_I14 : ADD { { add_36_25_I13.1 } { mul_25_76_I14.1 SIGN 38 } } } \
+   { 38 add_36_25_I15 : ADD { { add_36_25_I14.1 } { mul_25_76_I15.1 SIGN 38 } } } \
+   { 30 ps0 : SLICE { { add_36_25_I15.1 29 0 } } } \
+   { 30 add_36_25_I16 : ADD { { ps0.1 } { mul_25_76_I16.1 SIGN 30 } } } \
+   { sops0 = { add_36_25_I16.1 SIGN 38 } } }
+
+ovf_instance_module_name -module eigen_top \
+{ { eucd_inst euclidean_distance euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } }
+ovf_transform \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-type { tree } \
+-internal_type { 105 } \
+-internal_index { 26 } \
+-input { 16 A } \
+-output { 20 Z } \
+-from { \
+   { 20 mul_30_88_I1 : UMULT { { A } { 'b10000 } } } \
+   { Z = { mul_30_88_I1.1 } } } \
+-to { \
+   { 20 sll_30_88_I1 : USLL { { A } { 'b100 } } } \
+   { Z = { sll_30_88_I1.1 } } }
+
+ovf_transform \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-type { tree } \
+-internal_type { 106 } \
+-internal_index { 27 } \
+-input { 16 acc_reg_16b[0] } \
+-input { 16 stgrp_0__N450 } \
+-output { 32 stgrp_0__N451 } \
+-output { 32 stgrp_0__N453 } \
+-from { \
+   { 32 sub_31_62_I1 : SUB { { stgrp_0__N450 SIGN 32 } { acc_reg_16b[0] SIGN 32 } } } \
+   { 32 sub_31_112_I1 : SUB { { stgrp_0__N450 SIGN 32 } { acc_reg_16b[0] SIGN 32 } } } \
+   { stgrp_0__N451 = { sub_31_62_I1.1 } } \
+   { stgrp_0__N453 = { sub_31_112_I1.1 } } } \
+-to { \
+   { 32 sub_31_62_I1 : SUB { { stgrp_0__N450 SIGN 32 } { acc_reg_16b[0] SIGN 32 } } } \
+   { stgrp_0__N451 = { sub_31_62_I1.1 } } \
+   { stgrp_0__N453 = { sub_31_62_I1.1 } } }
+
+ovf_transform \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-type { tree } \
+-internal_type { 103 } \
+-internal_index { 30 } \
+-input { 16 I00 } \
+-input { 16 I10 } \
+-output { 32 comb_sum0 } \
+-from { \
+   { 32 sub_31_62_I1 : SUB { { I00 SIGN 32 } { I10 SIGN 32 } } } \
+   { 32 mul_31_80_I1 : MULT { { sub_31_62_I1.1 } { sub_31_62_I1.1 } } } \
+   { comb_sum0 = { mul_31_80_I1.1 } } } \
+-to { \
+   { 17 sub_31_62_I1 : SUB { { I00 SIGN 17 } { I10 SIGN 17 } } } \
+   { 32 mul_31_80_I1 : MULT { { sub_31_62_I1.1 SIGN 32 } { sub_31_62_I1.1 SIGN 32 } } } \
+   { comb_sum0 = { mul_31_80_I1.1 } } }
+
+ovf_seq_merge \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-from { { min_dist_reg[32] P } { min_dist_reg[33] P } { min_dist_reg[34] P } { min_dist_reg[35] P } { min_dist_reg[36] P } } \
+-to { { min_dist_reg[32] } }
+
+ovf_transform \
+-module { eigen_mac_PARALLEL_MACS16_ACC_WIDTH38_EIGEN_FACES1 } \
+-type { tree } \
+-internal_type { 206 } \
+-internal_index { 33 } \
+-input { 16 add_61_40.A } \
+-output { 16 O1 } \
+-from { \
+   { 16 add_61_40 : UADD { { add_61_40.A } { 'b1 ZERO 16 } } } \
+   { O1 = { add_61_40.1 } } } \
+-to { \
+   { 16 inc_add_61_40_1 : UINC { { add_61_40.A } { 'b1 ZERO 16 } } } \
+   { O1 = { inc_add_61_40_1.1 } } }
+
+ovf_transform \
+-module { eigen_mac_PARALLEL_MACS16_ACC_WIDTH38_EIGEN_FACES1 } \
+-type { tree } \
+-internal_type { 206 } \
+-internal_index { 34 } \
+-input { 12 add_66_44.A } \
+-output { 12 O1 } \
+-from { \
+   { 12 add_66_44 : UADD { { add_66_44.A } { 'b1 ZERO 12 } } } \
+   { O1 = { add_66_44.1 } } } \
+-to { \
+   { 12 inc_add_66_44_2 : UINC { { add_66_44.A } { 'b1 ZERO 12 } } } \
+   { O1 = { inc_add_66_44_2.1 } } }
+
+ovf_transform \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-type { tree } \
+-internal_type { 206 } \
+-internal_index { 35 } \
+-input { 16 add_76_38.A } \
+-output { 16 O1 } \
+-from { \
+   { 16 add_76_38 : UADD { { add_76_38.A } { 'b1 ZERO 16 } } } \
+   { O1 = { add_76_38.1 } } } \
+-to { \
+   { 16 inc_add_76_38_3 : UINC { { add_76_38.A } { 'b1 ZERO 16 } } } \
+   { O1 = { inc_add_76_38_3.1 } } }
+
+ovf_seq_merge \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-from { { min_dist_reg[1] P } { min_dist_reg[32] P } } \
+-to { { min_dist_reg[1] } }
+
+ovf_seq_merge \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-from { { face_ctr_reg[10] P } { face_ctr_reg[11] P } { face_ctr_reg[12] P } { face_ctr_reg[13] P } { face_ctr_reg[14] P } { face_ctr_reg[15] P } { face_ctr_reg[1] P } { face_ctr_reg[2] P } { face_ctr_reg[3] P } { face_ctr_reg[4] P } { face_ctr_reg[5] P } { face_ctr_reg[6] P } { face_ctr_reg[7] P } { face_ctr_reg[8] P } { face_ctr_reg[9] P } } \
+-to { { face_ctr_reg[10] } }
+
+ovf_seq_merge \
+-module { euclidean_distance_EIGEN_FACES1_ACC_WIDTH38_EUC_DISTANCE_WIDTH37_USER_FACES2 } \
+-from { { best_match_id_reg[10] P } { best_match_id_reg[11] P } { best_match_id_reg[12] P } { best_match_id_reg[13] P } { best_match_id_reg[14] P } { best_match_id_reg[15] P } { best_match_id_reg[1] P } { best_match_id_reg[2] P } { best_match_id_reg[3] P } { best_match_id_reg[4] P } { best_match_id_reg[5] P } { best_match_id_reg[6] P } { best_match_id_reg[7] P } { best_match_id_reg[8] P } { best_match_id_reg[9] P } } \
+-to { { best_match_id_reg[10] } }
+
+ovf_seq_merge \
+-module { eigen_mac_PARALLEL_MACS16_ACC_WIDTH38_EIGEN_FACES1 } \
+-from { { acc_counter_reg[10] P } { acc_counter_reg[11] P } { acc_counter_reg[8] P } { acc_counter_reg[9] P } } \
+-to { { acc_counter_reg[10] } }
+
+ovf_seq_merge \
+-module { eigen_mac_PARALLEL_MACS16_ACC_WIDTH38_EIGEN_FACES1 } \
+-from { { acc_idx_reg[0] P } { acc_idx_reg[10] P } { acc_idx_reg[11] P } { acc_idx_reg[12] P } { acc_idx_reg[13] P } { acc_idx_reg[14] P } { acc_idx_reg[15] P } { acc_idx_reg[1] P } { acc_idx_reg[2] P } { acc_idx_reg[3] P } { acc_idx_reg[4] P } { acc_idx_reg[5] P } { acc_idx_reg[6] P } { acc_idx_reg[7] P } { acc_idx_reg[8] P } { acc_idx_reg[9] P } } \
+-to { { acc_idx_reg[0] } }
+

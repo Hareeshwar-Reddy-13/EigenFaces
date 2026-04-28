@@ -1,0 +1,186 @@
+catch { setAnalysisMode -analysisType single }
+catch { setAnalysisMode -checkType setup }
+catch { setAnalysisMode -clkSrcPath true }
+catch { setAnalysisMode -clockPropagation forcedIdeal }
+catch { setTrialRouteMode -fixAirConnect true }
+catch { setTrialRouteMode -handlePreroute true }
+catch { setTrialRouteMode -keepMarkedOptRoutes true }
+catch { setOptMode -drcMargin 0 }
+catch { setOptMode -effort high }
+catch { setOptMode -fixDrc true }
+catch { setOptMode -setupTargetSlack 0 }
+setExtractRCMode  -engine preRoute
+catch { setDelayCalMode -betaEngine sgs2 }
+catch { setDelayCalMode -enable_high_fanout false }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -ignoreNetLoad false }
+catch { setCTSMode -moveGateLimit 25 }
+catch { set_ccopt_mode -integration native }
+catch { set_ccopt_mode -is_mode_set_route_top_mask false }
+catch { set_ccopt_mode -is_mode_set_route_top_preferred_extra_space false }
+catch {setNanoRouteMode -quiet -routeWithTimingDriven true}
+
+catch { setPlaceMode -congRepairForceTrialRoute false }
+catch { setPlaceMode -getLegalMultiThread false }
+catch { setPlaceMode -hardFence true }
+catch { setPlaceMode -ignoreScan true }
+catch { setPlaceMode -relaxSoftBlockageMode 2 }
+catch { setPlaceMode -timingDriven true }
+setDontUse ad01d0 false
+setDontUse adp1d0 false
+setDontUse ah01d0 false
+setDontUse an02d0 false
+setDontUse an03d0 false
+setDontUse an04d0 false
+setDontUse an12d1 false
+setDontUse aoi211d1 false
+setDontUse aoi21d1 false
+setDontUse aoi221d1 false
+setDontUse aoi2222d1 false
+setDontUse aoi222d1 false
+setDontUse aoi22d1 false
+setDontUse aoi311d1 false
+setDontUse aoi31d1 false
+setDontUse aoi321d1 false
+setDontUse aoi322d1 false
+setDontUse aoim211d1 false
+setDontUse aoim21d1 false
+setDontUse aoim22d1 false
+setDontUse aoim22d2 false
+setDontUse aoim2m11d1 false
+setDontUse aoim311d1 false
+setDontUse aoim31d1 false
+setDontUse aoim3m11d1 false
+setDontUse aon211d1 false
+setDontUse aor211d1 false
+setDontUse aor21d1 false
+setDontUse aor221d1 false
+setDontUse aor222d1 false
+setDontUse aor22d1 false
+setDontUse aor311d1 false
+setDontUse aor31d1 false
+setDontUse buftd1 false
+setDontUse cg01d0 false
+setDontUse decfq1 false
+setDontUse decrq1 false
+setDontUse denrq1 false
+setDontUse depfq1 false
+setDontUse deprq1 false
+setDontUse deprq2 false
+setDontUse dfbfb1 false
+setDontUse dfbrb1 false
+setDontUse dfcfb1 false
+setDontUse dfcfq1 false
+setDontUse dfcrb1 false
+setDontUse dfcrn1 false
+setDontUse dfcrq1 false
+setDontUse dfnfb1 false
+setDontUse dfnrb1 false
+setDontUse dfnrn1 false
+setDontUse dfnrq1 false
+setDontUse dfpfb1 false
+setDontUse dfprb1 false
+setDontUse dl01d1 false
+setDontUse dl02d1 false
+setDontUse dl03d1 false
+setDontUse dl04d1 false
+setDontUse dl04d2 false
+setDontUse gclfsn7 false
+setDontUse gclfsna false
+setDontUse gclrsn1 false
+setDontUse gcnfnn1 false
+setDontUse gcnrnn1 false
+setDontUse inv0d1 false
+setDontUse invbd2 false
+setDontUse invtd1 false
+setDontUse jkbrb1 false
+setDontUse labhb1 false
+setDontUse lachq1 false
+setDontUse laclq1 false
+setDontUse lanhb1 false
+setDontUse lanhn1 false
+setDontUse lanhq1 false
+setDontUse lanht1 false
+setDontUse lanht2 false
+setDontUse lanlb1 false
+setDontUse lanln1 false
+setDontUse lanln2 false
+setDontUse lanlq1 false
+setDontUse mffnrb1 false
+setDontUse mi02d0 false
+setDontUse mx02d0 false
+setDontUse mx04d0 false
+setDontUse nd02d0 false
+setDontUse nd03d0 false
+setDontUse nd04d0 false
+setDontUse nd12d0 false
+setDontUse nd13d2 false
+setDontUse nd23d1 false
+setDontUse nr02d0 false
+setDontUse nr03d0 false
+setDontUse nr04d0 false
+setDontUse nr13d1 false
+setDontUse nr23d1 false
+setDontUse oai211d1 false
+setDontUse oai21d1 false
+setDontUse oai221d1 false
+setDontUse oai2222d1 false
+setDontUse oai222d1 false
+setDontUse oai22d1 false
+setDontUse oai311d1 false
+setDontUse oai31d1 false
+setDontUse oai321d1 false
+setDontUse oai322d1 false
+setDontUse oaim211d1 false
+setDontUse oaim21d1 false
+setDontUse oaim22d1 false
+setDontUse oaim2m11d1 false
+setDontUse oaim311d1 false
+setDontUse oaim31d1 false
+setDontUse oaim3m11d1 false
+setDontUse oan211d1 false
+setDontUse or02d0 false
+setDontUse or03d0 false
+setDontUse or04d0 false
+setDontUse ora211d1 false
+setDontUse ora21d1 false
+setDontUse ora311d1 false
+setDontUse ora31d1 false
+setDontUse sdbfb1 false
+setDontUse sdbrb1 false
+setDontUse sdcfb1 false
+setDontUse sdcfq1 false
+setDontUse sdcrb1 false
+setDontUse sdcrn1 false
+setDontUse sdcrq1 false
+setDontUse sdnfb1 false
+setDontUse sdnrb1 false
+setDontUse sdnrn1 false
+setDontUse sdnrq1 false
+setDontUse sdpfb1 false
+setDontUse sdprb1 false
+setDontUse secfq1 false
+setDontUse secfq2 false
+setDontUse secrq1 false
+setDontUse senrb1 false
+setDontUse senrq1 false
+setDontUse sepfq2 false
+setDontUse sepfq4 false
+setDontUse seprq1 false
+setDontUse seprq2 false
+setDontUse skbrb1 false
+setDontUse slchq1 false
+setDontUse slclq1 false
+setDontUse slnhb1 false
+setDontUse slnhn1 false
+setDontUse slnhq1 false
+setDontUse slnht1 false
+setDontUse slnlb1 false
+setDontUse slnln1 false
+setDontUse slnlq1 false
+setDontUse su01d0 false
+setDontUse xn02d1 false
+setDontUse xn02d2 false
+setDontUse xr02d1 false
+setDontUse xr03d1 false
+setIlmMode -highFanoutPort true -loopBack false 

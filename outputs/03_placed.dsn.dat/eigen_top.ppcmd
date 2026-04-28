@@ -1,0 +1,28 @@
+# PPCMD 1 
+# addStripe -nets {VSS VDD} -layer Metal3 -width 2.5 -spacing 1.5 -set_to_set_distance 40
+# 2 
+# 2 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 1 
+
+# PPCMD 2 
+# addRing -nets {VDD VSS} -width 5 -spacing 2 -layer {top Metal4 bottom Metal4 left Metal3 right Metal3} -width_top {5} -width_bottom {5} -width_left {5} -width_right {5} -spacing_top {2} -spacing_bottom {2} -spacing_left {2} -spacing_right {2} -layer_top Metal4 -layer_bottom Metal4 -layer_left Metal3 -layer_right Metal3 -stacked_via_top_layer topLayer -stacked_via_bottom_layer bottomLayer
+# 1 
+# 32 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 2 
+
